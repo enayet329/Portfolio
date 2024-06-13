@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="mb-2">
+    <div>
+      <button
+        class="btn btn-outline-primary mb-2 me-2"
+        (click)="isCollapsed = !isCollapsed"
+      >
+        Filter
+      </button>
+      <button class="btn btn-outline-primary mb-2" (click)="ResetFilter()" [hidden]="!filtering">Reset</button>
+    </div>
+    <div [collapse]="isCollapsed" [isAnimated]="true">
+      <div class="border mb-2 shadow-sm" style="width: 300px">
+        <form>
+          <div class="row mx-0">
+            <div class="col">
+              <small><b>Languages:</b></small>
+              <div class="from-group">
+                <div class="from-check">
+                  <input
+                    type="checkbox"
+                    class="from-check-input position-static me-2"
+                    [(ngModel)]="CSharp"
+                    (change)="Filter()"
+                    name="CSharp">
+                  <label class="form-check-label small">C#</label>
+                </div>
+                <!-- Add more checkboxes for other languages here -->
+                <div class="from-check">
+                  <input
+                    type="checkbox"
+                    class="from-check-input position-static me-2"
+                    [(ngModel)]="JavaScript"
+                    (change)="Filter()"
+                    name="JavaScript">
+                  <label class="form-check-label small">JavaScript</label>
+                </div>
+                <div class="from-check">
+                  <input
+                    type="checkbox"
+                    class="from-check-input position-static me-2"
+                    [(ngModel)]="TypeScript"
+                    (change)="Filter()"
+                    name="TypeScript">
+                  <label class="form-check-label small">TypeScript</label>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <small><b>Frameworks:</b></small>
+              <div class="from-group">
+                <div class="from-check">
+                  <input
+                    type="checkbox"
+                    class="from-check-input position-static me-2"
+                    [(ngModel)]="ASPNET"
+                    (change)="Filter()"
+                    name="ASPNET">
+                  <label class="form-check-label small">ASP.NET Core</label>
+                </div>
+                <!-- Add more checkboxes for other frameworks here -->
+                <div class="from-check">
+                  <input
+                    type="checkbox"
+                    class="from-check-input position-static me-2"
+                    [(ngModel)]="Angular"
+                    (change)="Filter()"
+                    name="Angular">
+                  <label class="form-check-label small">Angular</label>
+                </div>
+                <div class="from-check">
+                  <input
+                    type="checkbox"
+                    class="from-check-input position-static me-2"
+                    [(ngModel)]="React"
+                    (change)="Filter()"
+                    name="React">
+                  <label class="form-check-label small">React</label>
+                </div>
+                <div class="from-check">
+                  <input
+                    type="checkbox"
+                    class="from-check-input position-static me-2"
+                    [(ngModel)]="NextJs"
+                    (change)="Filter()"
+                    name="NextJs">
+                  <label class="form-check-label small">NextJs</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-4">
+    <div
+      *ngFor="let project of projects"
+      class="col-lg-4 col-md-6 mb-4"
+      style="max-width: 380; min-width: 380"
+    >
+      <app-project-card [project]="project"></app-project-card>
+    </div>
+  </div>
+</div>

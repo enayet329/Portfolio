@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <!--About me-->
+    <div class="col-lg shadow border m-1 p-3 rounded">
+      <div class="text-center">
+        <h2 class="about display-4">About Me</h2>
+        <img
+          src="../../assets/profile/Designelr.png"
+          alt="profile picture"
+          height="256"
+          width="256"
+          class="rounded-circle mb-4 border border-2 border-light"
+        />
+        <p class="lead" [@listAnimation]="words">
+          <span *ngFor="let word of words">{{ word }} </span>
+        </p>
+      </div>
+    </div>
+    <div class="col-lg shadow border m-1 p-3 rounded">
+      <div class="text-center">
+        <h2 class="display-4">Feature Project</h2>
+        <h4 class="display-6 text-muted">{{ featuredProject.name }}</h4>
+        <div>
+          <carousel>
+            <slide *ngFor="let image of featuredProject.pictures; let i = index">
+              <img [src]="image" alt="Project Image" class="img-fluid rounded" />
+            </slide>
+          </carousel>
+          <p class="mt-3">{{ featuredProject.summary}}</p>
+          <p class="text-muted">Visit the Portfolio section to learn more!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

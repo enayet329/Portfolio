@@ -1,0 +1,61 @@
+.modal-header {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    color: #333;
+  }
+  
+  .project-title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .btn-close {
+    background-color: transparent;
+    border: none;
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .2;
+  }
+  
+  .carousel-container {
+    margin: 20px 0;
+  }
+  
+  .project-image {
+    display: block; 
+    width: 100%;
+    height: auto;
+  }
+  
+  .project-description {
+    margin-top: 20px;
+  }
+  
+  .project-links {
+    margin: 20px 0;
+  }
+  
+  .project-links i {
+    margin-right: 5px;
+  }
+  
+  .tag-container {
+    display: flex; 
+    flex-wrap: wrap;
+  }
+  
+  .tag-item {
+    margin: 2px;
+  }
+  
+  .tag {
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 3px;
+  }
+  

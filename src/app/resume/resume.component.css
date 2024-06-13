@@ -1,0 +1,118 @@
+body {
+  background: linear-gradient(145deg, #c2cec7, #bcaabe);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.accordion-button {
+  background-color: #f8f9fa;
+  border: none;
+  text-align: left;
+  font-size: 1.2rem;
+  padding: 15px;
+  transition: background-color 0.3s;
+}
+
+.icon-placeholder {
+  visibility: hidden;
+}
+
+.accordion-icon {
+  width: 10.95px;
+}
+
+.accordion-icon div {
+  color: black;
+  font-weight: bold;
+}
+
+.accordion-group {
+  margin-bottom: 10px;
+}
+
+.education, .project, .skills {
+  padding: 20px;
+  text-align: left;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+ul {
+  text-align: left;
+}
+
+ul li {
+  padding: 5px 0;
+}
+
+.row {
+  margin: 0 -10px;
+}
+
+.col {
+  padding: 10px;
+}
+
+/* Custom styles for the accordion sections */
+::ng-deep .accordion-education .card-header:first-child {
+  background-color: #d1e7dd; /* light green */
+}
+
+::ng-deep .accordion-projects .card-header:first-child {
+  background-color: #f8d7da; /* light red */
+}
+
+::ng-deep .accordion-skills .card-header:first-child {
+  background-color: #cff4fc; /* light blue */
+}
+
+/* Hover effect */
+::ng-deep .accordion-education .card-header:first-child:hover,
+::ng-deep .accordion-education .card-header:first-child:hover .accordion-button {
+  background-color: #d1e7dd; /* light green */
+  color: rgb(22, 22, 22);
+}
+
+::ng-deep .accordion-projects .card-header:first-child:hover,
+::ng-deep .accordion-projects .card-header:first-child:hover .accordion-button {
+  background-color: #f8d7da; /* light red */
+  color: rgb(22, 22, 22);
+}
+
+::ng-deep .accordion-skills .card-header:first-child:hover,
+::ng-deep .accordion-skills .card-header:first-child:hover .accordion-button {
+  background-color: #cff4fc; /* light blue */
+  color: rgb(22, 22, 22);
+}

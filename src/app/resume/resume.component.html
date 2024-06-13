@@ -1,0 +1,121 @@
+<div class="container text-center">
+  <button (click)="DownloadFile()" class="btn btn-primary mb-5 shadow border">
+    Download PDF Resume
+  </button>
+  <div class="pb-2 justify-content-center">
+    <accordion [isAnimated]="true" class="shadow">
+      <!-- Education Section -->
+      <accordion-group [(isOpen)]="isEducation" class="accordion-education">
+        <button
+          class="btn btn-block justify-content-between d-flex w-100 accordion-button"
+          accordion-heading
+        >
+          <div class="icon-placeholder">></div>
+          <div class="btn-link">Education</div>
+          <div class="accordion-icon">
+            <div *ngIf="!isEducation">></div>
+            <div *ngIf="isEducation">v</div>
+          </div>
+        </button>
+        <div class="education">
+          <h2>Bachelor's Degree in Computer Science & Engineering</h2>
+          <h3>BRAC University</h3>
+          <p>2019 - 2023</p>
+        </div>
+      </accordion-group>
+
+      <!-- Projects Section -->
+      <accordion-group [(isOpen)]="isProjects" class="accordion-projects">
+        <button
+          class="btn btn-block justify-content-between d-flex w-100 accordion-button"
+          accordion-heading
+        >
+          <div class="icon-placeholder">></div>
+          <div class="btn-link">Projects</div>
+          <div class="accordion-icon">
+            <div *ngIf="!isProjects">></div>
+            <div *ngIf="isProjects">v</div>
+          </div>
+        </button>
+        <div class="project">
+          <h2>ASP.NET Microservices Architecture</h2>
+          <p>
+            Spearheaded the development of a highly scalable e-commerce
+            application using ASP.NET Core and Microservices Architecture.
+            Utilized Docker, RabbitMQ, Entity Framework Core, SQL Server, and
+            MongoDB.
+          </p>
+          <h2>ASP.NET JWT Authentication</h2>
+          <p>
+            Developed a secure .NET web application implementing JWT for
+            authentication and authorization. Utilized ASP.NET Identity and
+            Entity Framework Core.
+          </p>
+          <h2>Image Search App</h2>
+          <p>
+            Developed an Image Search Application leveraging JavaScript and
+            Unsplash API for real-time image fetching based on user queries.
+          </p>
+          <h2>Add Cart Shopping App</h2>
+          <p>
+            Developed an interactive 'Add to Cart' feature for an e-commerce
+            website, including real-time inventory tracking and secure payment
+            integration.
+          </p>
+          <h2>Chat GPT Clone</h2>
+          <p>
+            Developed a ChatGPT clone using Next.js, TypeScript, and Open AI
+            API, demonstrating proficiency in natural language processing and AI
+            model integration.
+          </p>
+        </div>
+      </accordion-group>
+
+      <!-- Skills Section -->
+      <accordion-group [(isOpen)]="isSkills" class="accordion-skills">
+        <button
+          class="btn btn-block justify-content-between d-flex w-100 accordion-button"
+          accordion-heading
+        >
+          <div class="icon-placeholder">></div>
+          <div class="btn-link">Skills</div>
+          <div class="accordion-icon">
+            <div *ngIf="!isSkills">></div>
+            <div *ngIf="isSkills">v</div>
+          </div>
+        </button>
+        <div class="row">
+          <div class="col">
+            <h3>Programming Languages:</h3>
+            <ul>
+              <li>C#</li>
+              <li>JavaScript</li>
+              <li>HTML</li>
+              <li>CSS</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>Frameworks & Libraries:</h3>
+            <ul>
+              <li>ASP.NET Core</li>
+              <li>Angular (Beginner)</li>
+              <li>React.js (Beginner)</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>Other Skills:</h3>
+            <ul>
+              <li>Source Control via Git</li>
+              <li>RESTful APIs</li>
+              <li>Microservices Architecture</li>
+              <li>Docker</li>
+              <li>SQL</li>
+              <li>Entity Framework Core</li>
+              <li>JWT (JSON Web Tokens)</li>
+            </ul>
+          </div>
+        </div>
+      </accordion-group>
+    </accordion>
+  </div>
+</div>

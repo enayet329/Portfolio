@@ -1,0 +1,28 @@
+.jumbotron {
+  padding: 1% 1rem; /* Adjust padding as needed */
+  background: linear-gradient(145deg, #9db6a0, #e4dae7);
+}
+
+.jumbotron h1{
+  /* Hover state */
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 3px 4px 8px rgba(13, 13, 13, 0.5);
+  transition: all 0.5s ease; 
+}
+
+.jumbotron h3{
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 2px 2px 4px rgba(13, 13, 13, 0.5); 
+  transition: all 0.5s ease;
+}
+
+.lead span {
+  opacity: 0; /* Initially hidden... */
+  display: none; /* ...and not taking up space */
+  transition: all 0.2s ease;
+}
+
+.lead span.fade {
+  opacity: 1; /* Fully visible after the animation... */
+  display: inline; /* ...and taking up space */
+}
