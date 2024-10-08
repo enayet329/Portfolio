@@ -18,7 +18,7 @@ export class ResumeComponent {
   DownloadFile() {
     const link = this.renderer.createElement('a');
     link.setAttribute('target','_blank');
-    link.setAttribute('href', 'https://drive.google.com/file/d/1YFqEoCVhkcfsjmk0KdjMujv68Ttp9atJ/view');
+    link.setAttribute('href', 'https://drive.google.com/file/d/1JU4vBgDdr9yRpjpCYZMRzWnmIE6mNFQM/view?usp=drive_link');
     link.setAttribute('download', 'Enayet_Hossain_Resume.pdf');
     link.click();
     link.remove();
