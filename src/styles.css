@@ -22,11 +22,15 @@
   --accent-emerald: #10B981;
   --accent-amber:   #F59E0B;
   --accent-rose:    #F43F5E;
+  --accent-magenta: #D946EF;
+  --accent-violet:  #8B5CF6;
 
-  --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%);
+  --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #06B6D4 50%, #D946EF 100%);
+  --gradient-cyber:   linear-gradient(120deg, #06B6D4 0%, #8B5CF6 50%, #D946EF 100%);
   --gradient-mesh:    radial-gradient(at 20% 20%, rgba(59,130,246,0.18) 0px, transparent 50%),
                       radial-gradient(at 80% 0%,  rgba(6,182,212,0.14) 0px, transparent 50%),
-                      radial-gradient(at 80% 80%, rgba(16,185,129,0.10) 0px, transparent 50%);
+                      radial-gradient(at 80% 80%, rgba(217,70,239,0.10) 0px, transparent 50%),
+                      radial-gradient(at 30% 90%, rgba(16,185,129,0.08) 0px, transparent 50%);
 
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
   --shadow-md: 0 8px 24px rgba(0,0,0,0.35);
@@ -158,12 +162,45 @@ code, pre, .mono {
 
 /* ----- Cards & glass ----- */
 .glass-card {
+  position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 28px;
   backdrop-filter: blur(12px);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+/* Cyber corner brackets — neon L-shapes in each corner */
+.glass-card::before,
+.glass-card::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--accent-cyan);
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+  pointer-events: none;
+}
+.glass-card::before {
+  top: 8px;
+  left: 8px;
+  border-right: none;
+  border-bottom: none;
+}
+.glass-card::after {
+  bottom: 8px;
+  right: 8px;
+  border-left: none;
+  border-top: none;
+}
+.glass-card:hover::before,
+.glass-card:hover::after {
+  opacity: 1;
+  width: 22px;
+  height: 22px;
 }
 
 .glass-card:hover {
@@ -172,17 +209,78 @@ code, pre, .mono {
   box-shadow: var(--shadow-md);
 }
 
+.glass-card--glow {
+  background:
+    linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+    var(--bg-card) border-box;
+}
 .glass-card--glow:hover {
   box-shadow: var(--shadow-glow);
   border-color: rgba(59,130,246,0.4);
+}
+.glass-card--glow:hover::before,
+.glass-card--glow:hover::after {
+  border-color: var(--accent-magenta);
 }
 
 /* ----- Typography helpers ----- */
 .gradient-text {
   background: var(--gradient-primary);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* ----- Cyber section divider ----- */
+.cyber-divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--border-strong) 15%,
+    var(--accent-cyan) 50%,
+    var(--border-strong) 85%,
+    transparent 100%);
+  margin: 0 auto;
+  max-width: 1200px;
+  opacity: 0.5;
+}
+.cyber-divider::before,
+.cyber-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 12px var(--accent-cyan);
+  transform: translateY(-50%);
+}
+.cyber-divider::before { left: 50%; transform: translate(-50%, -50%); }
+.cyber-divider::after  { display: none; }
+
+/* ----- Scanline overlay (use on hero) ----- */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(255,255,255,0.015) 3px,
+    rgba(255,255,255,0.015) 4px
+  );
+  mix-blend-mode: overlay;
 }
 
 .text-muted-soft { color: var(--text-muted); }
@@ -206,14 +304,37 @@ code, pre, .mono {
 }
 
 .btn-primary-cta {
+  position: relative;
   background: var(--gradient-primary);
+  background-size: 200% 200%;
   color: #fff;
   box-shadow: 0 4px 14px rgba(59,130,246,0.35);
+  overflow: hidden;
+  isolation: isolate;
+  animation: btn-bg-shift 6s ease infinite;
+}
+.btn-primary-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg,
+    transparent 30%,
+    rgba(255,255,255,0.35) 50%,
+    transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: -1;
 }
 .btn-primary-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(59,130,246,0.45);
+  box-shadow: 0 8px 24px rgba(217,70,239,0.40);
   color: #fff;
+}
+.btn-primary-cta:hover::before { transform: translateX(100%); }
+
+@keyframes btn-bg-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
 }
 
 .btn-secondary-cta {
