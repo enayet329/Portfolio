@@ -8,7 +8,10 @@ import { ScrollService } from '../_services/scroll.service';
 })
 export class HeroComponent implements OnInit, OnDestroy {
   typedText = '';
-  private readonly fullText = "Hi, I'm Enayet";
+  mouseX = 0;
+  mouseY = 0;
+
+  private readonly fullText = "hi, I'm Enayet";
   private timer?: ReturnType<typeof setTimeout>;
 
   constructor(readonly scrollService: ScrollService) {}
@@ -29,6 +32,13 @@ export class HeroComponent implements OnInit, OnDestroy {
   downloadResume(event: Event): void {
     event.preventDefault();
     this.scrollService.downloadResume();
+  }
+
+  onMouseMove(event: MouseEvent): void {
+    const target = event.currentTarget as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    this.mouseX = event.clientX - rect.left;
+    this.mouseY = event.clientY - rect.top;
   }
 
   private typeNext(i: number): void {
