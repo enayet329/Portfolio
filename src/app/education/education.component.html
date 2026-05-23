@@ -1,0 +1,35 @@
+<section id="education" class="section">
+  <div class="container-wide">
+    <div class="section-eyebrow">Education · Certifications · Achievements</div>
+    <h2 class="section-title">Continuously <span class="gradient-text">learning</span></h2>
+
+    <div class="edu-grid" appReveal>
+      <article class="edu-card glass-card glass-card--glow">
+        <div class="edu-eyebrow mono">🎓 Education</div>
+        <h3 class="edu-title">B.Sc. in Computer Science &amp; Engineering</h3>
+        <p class="edu-meta">Northern University Bangladesh (NUB)</p>
+        <span class="edu-period mono">2026 – Present</span>
+      </article>
+
+      <article class="edu-card glass-card glass-card--glow">
+        <div class="edu-eyebrow mono">📜 Certifications</div>
+        <ul class="edu-list">
+          <li *ngFor="let c of certifications">
+            <span class="edu-icon">{{ c.icon }}</span>
+            <span>{{ c.title }}</span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="edu-card glass-card glass-card--glow">
+        <div class="edu-eyebrow mono">🏆 Achievements</div>
+        <ul class="edu-list">
+          <li *ngFor="let a of achievements">
+            <span class="edu-icon">{{ a.icon }}</span>
+            <span>{{ a.title }}</span>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

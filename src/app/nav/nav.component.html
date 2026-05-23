@@ -1,18 +1,45 @@
-<nav class="navbar-expand-md border-bottom mb-3 ">
-    <div class="container">
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link text-secondary" routerLink="/home" routerLinkActive="text-dark active">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-secondary" routerLink="/portfolio" routerLinkActive="text-dark active">Portfolio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-secondary" routerLink="/resume" routerLinkActive="text-dark active">Resume</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-secondary" routerLink="/contact" routerLinkActive="text-dark active">Contact</a>
-            </li>
-        </ul>
+<header class="nav-shell" [class.is-scrolled]="scrolled">
+  <div class="container-wide nav-inner">
+    <a href="#hero" class="nav-brand" (click)="onBrandClick($event)">
+      <span class="brand-mark mono">EH</span>
+      <span class="brand-label">Enayet<span class="brand-dot">.</span>dev</span>
+    </a>
+
+    <nav class="nav-links" [class.is-open]="menuOpen" aria-label="Primary">
+      <a *ngFor="let link of links; let i = index"
+         [href]="'#' + link.id"
+         class="nav-link"
+         [class.is-active]="activeId === link.id"
+         (click)="onLinkClick($event, link.id)">
+        <span class="nav-index mono">0{{ i + 1 }}.</span>
+        <span>{{ link.label }}</span>
+      </a>
+    </nav>
+
+    <div class="nav-actions">
+      <button type="button"
+              class="nav-icon-btn"
+              (click)="toggleTheme()"
+              [attr.aria-label]="'Switch to ' + (themeService.theme() === 'dark' ? 'light' : 'dark') + ' theme'">
+        <svg *ngIf="themeService.theme() === 'dark'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg *ngIf="themeService.theme() === 'light'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <a href="#contact" class="btn-primary-cta btn-sm nav-cta" (click)="onLinkClick($event, 'contact')">Let's talk</a>
+
+      <button type="button"
+              class="nav-icon-btn nav-burger"
+              [class.is-open]="menuOpen"
+              (click)="menuOpen = !menuOpen"
+              [attr.aria-expanded]="menuOpen"
+              aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-</nav>
+  </div>
+</header>

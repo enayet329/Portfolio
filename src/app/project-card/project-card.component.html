@@ -1,14 +1,45 @@
-<div class="card shadow text-center">
-  <div class="card-body">
-    <h5 class="card-title">{{ project.name }}</h5>
-    <p class="card-text">{{ project.summary }}</p>
-    <button class="btn btn-primary" (click)="OpenProjectModal()">View More</button>
-  </div>
-  <div class="card-footer">
-    <div class="d-flex flex-wrap justify-content-center">
-      <div *ngFor="let tag of project.tags | slice:0:2;">
-        <div class="tag me-2 mb-1" [style.background-color]="tag.color">{{ tag }}</div>
-      </div>
+<article class="project-card glass-card glass-card--glow">
+  <header class="project-head">
+    <div class="project-status" *ngIf="project.statusLabel">
+      <span class="status-dot" [class.is-completed]="project.status === 'completed'"></span>
+      <span>{{ project.statusLabel }}</span>
     </div>
+    <span class="project-duration mono">{{ project.duration }}</span>
+  </header>
+
+  <h3 class="project-name">{{ project.name }}</h3>
+  <p class="project-tagline">{{ project.tagline }}</p>
+
+  <p class="project-summary">{{ project.summary }}</p>
+
+  <ul class="project-highlights">
+    <li *ngFor="let h of project.highlights | slice:0:3">{{ h }}</li>
+  </ul>
+
+  <div class="project-tags">
+    <span *ngFor="let tag of project.tags | slice:0:5; trackBy: trackTag"
+          class="project-tag"
+          [style.color]="tag.color"
+          [style.border-color]="tag.color + '55'">
+      {{ tag }}
+    </span>
+    <span *ngIf="project.tags.length > 5" class="project-tag-more">
+      +{{ project.tags.length - 5 }}
+    </span>
   </div>
-</div>
+
+  <footer class="project-actions">
+    <button type="button" class="btn-primary-cta btn-sm" (click)="openProjectModal()">
+      View details
+    </button>
+    <a *ngIf="project.projectLink" [href]="project.projectLink" target="_blank" rel="noopener"
+       class="btn-ghost-cta btn-sm" aria-label="View source on GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.18-.02-2.14-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11.04 11.04 0 0 1 5.78 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+      GitHub
+    </a>
+    <a *ngIf="project.liveLink" [href]="project.liveLink" target="_blank" rel="noopener"
+       class="btn-ghost-cta btn-sm" aria-label="View live project">
+      ↗ Live
+    </a>
+  </footer>
+</article>

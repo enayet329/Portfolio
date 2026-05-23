@@ -1,6 +1,21 @@
-<div class="shadow-sm">
-    <app-header></app-header>
 <app-nav></app-nav>
-</div>
 
-<router-outlet></router-outlet>
+<main>
+  <app-hero></app-hero>
+  <app-about></app-about>
+  <app-skills></app-skills>
+  <app-experience></app-experience>
+  <app-portfolio></app-portfolio>
+  <app-education></app-education>
+  <app-contact></app-contact>
+</main>
+
+<app-footer></app-footer>
+
+<button type="button"
+        class="back-to-top"
+        [class.is-visible]="showBackToTop"
+        (click)="scrollToTop()"
+        aria-label="Back to top">
+  ↑
+</button>

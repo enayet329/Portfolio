@@ -6,23 +6,21 @@ import { ProjectModalComponent } from '../project-modal/project-modal.component'
 @Component({
   selector: 'app-project-card',
   templateUrl: './project-card.component.html',
-  styleUrls: ['./project-card.component.css']
+  styleUrls: ['./project-card.component.css'],
 })
 export class ProjectCardComponent {
-  @Input() project = {} as Project;
+  @Input() project!: Project;
   bsModalRef?: BsModalRef;
 
-  constructor(private modalService: BsModalService) {
+  constructor(private readonly modalService: BsModalService) {}
 
-   }
-
-   OpenProjectModal() {
-
+  openProjectModal(): void {
     const modalOption: ModalOptions = {
-      class: "modal-lg",
-      initialState: { project: this.project }
+      class: 'modal-lg modal-dialog-centered',
+      initialState: { project: this.project },
     };
+    this.bsModalRef = this.modalService.show(ProjectModalComponent, modalOption);
+  }
 
-     this.bsModalRef = this.modalService.show(ProjectModalComponent, modalOption);
-   }
+  trackTag = (_: number, tag: { toString(): string }) => tag.toString();
 }

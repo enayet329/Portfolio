@@ -1,0 +1,57 @@
+<section id="about" class="section">
+  <div class="container-wide">
+    <div class="section-eyebrow">About Me</div>
+    <h2 class="section-title">Backend engineer building <span class="gradient-text">enterprise-grade systems</span></h2>
+
+    <div class="about-grid" appReveal>
+      <div class="about-portrait">
+        <div class="portrait-frame">
+          <img src="assets/profile/headshot.png" alt="MD Enayet Hossain — portrait" loading="lazy" />
+          <span class="portrait-ring" aria-hidden="true"></span>
+        </div>
+        <div class="portrait-name">
+          <span class="portrait-fullname">MD Enayet Hossain</span>
+          <span class="portrait-role mono">.NET Developer · Backend Engineer</span>
+        </div>
+      </div>
+
+      <div class="about-text glass-card">
+        <p>
+          Results-driven <strong>.NET Developer</strong> with hands-on experience
+          designing, developing, and optimizing enterprise-level applications using
+          <strong>ASP.NET Core</strong>, <strong>Microservices architecture</strong>,
+          and <strong>RESTful APIs</strong>.
+        </p>
+        <p>
+          Proven experience in real-time system integration with global GDS
+          suppliers, high-performance backend systems, and scalable distributed
+          architectures. Strong understanding of clean architecture principles,
+          API orchestration, and production-grade application development.
+        </p>
+
+        <div class="about-meta">
+          <div class="meta-item">
+            <span class="meta-label">Location</span>
+            <span class="meta-value">Dhaka, Bangladesh</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">Jr. Software Engineer @ Akij iBos</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Focus</span>
+            <span class="meta-value">.NET · Microservices · GDS Integrations</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-stats">
+        <div *ngFor="let stat of stats" class="stat-card glass-card glass-card--glow">
+          <div class="stat-icon" aria-hidden="true">{{ stat.icon }}</div>
+          <div class="stat-value gradient-text">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

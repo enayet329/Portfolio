@@ -1,37 +1,43 @@
-<div class="modal-header">
-  <h2 class="project-title">{{ project.name }}</h2>
-  <button class="btn-close" (click)="bsModalRef.hide()"></button>
+<div class="modal-header project-modal-header">
+  <div>
+    <h2 class="project-modal-title">{{ project.name }}</h2>
+    <p class="project-modal-tagline">{{ project.tagline }} · <span class="mono">{{ project.duration }}</span></p>
+  </div>
+  <button type="button" class="btn-close" aria-label="Close" (click)="bsModalRef.hide()"></button>
 </div>
-<div class="modal-body">
-  <div class="carousel-container">
-    <carousel>
-      <slide *ngFor="let picture of project.pictures">
-        <img [src]="picture" alt="slide" class="project-image" />
-      </slide>
-    </carousel>
+
+<div class="modal-body project-modal-body">
+  <div class="project-modal-status" *ngIf="project.statusLabel">
+    <span class="status-dot" [class.is-completed]="project.status === 'completed'"></span>
+    <span>{{ project.statusLabel }}</span>
   </div>
 
-  <div class="project-description">
-    <h3>Description</h3>
+  <section class="project-modal-section">
+    <h3>About the project</h3>
     <p>{{ project.description }}</p>
-  </div>
+  </section>
 
-  <div class="project-links">
-    <p>
-      <i class="fab fa-github"></i> Check out the source code for this project on 
-      <a href="{{ project.projectLink }}" target="_blank">Github</a>
-    </p>
-    <p>
-      <i class="fas fa-external-link-alt"></i> See the live project 
-      <a href="{{ project.liveLink }}" target="_blank">here</a>
-    </p>
-  </div>
+  <section class="project-modal-section">
+    <h3>Highlights</h3>
+    <ul>
+      <li *ngFor="let h of project.highlights">{{ h }}</li>
+    </ul>
+  </section>
 
-  <div class="tag-container">
-    <div *ngFor="let tag of project.tags" class="tag-item">
-      <div class="tag" [style.background-color]="tag.color">
-        {{ tag }}
-      </div>
+  <section class="project-modal-section">
+    <h3>Tech stack</h3>
+    <div class="project-modal-tags">
+      <span *ngFor="let tag of project.tags"
+            class="project-tag"
+            [style.color]="tag.color"
+            [style.border-color]="tag.color + '55'">{{ tag }}</span>
     </div>
-  </div>
+  </section>
+
+  <footer class="project-modal-links">
+    <a *ngIf="project.projectLink" [href]="project.projectLink" target="_blank" rel="noopener"
+       class="btn-secondary-cta">View on GitHub →</a>
+    <a *ngIf="project.liveLink" [href]="project.liveLink" target="_blank" rel="noopener"
+       class="btn-primary-cta">Visit live ↗</a>
+  </footer>
 </div>

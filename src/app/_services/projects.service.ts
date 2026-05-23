@@ -2,163 +2,108 @@ import { Injectable } from '@angular/core';
 import { Project } from '../_models/Project';
 import { Tag } from '../_models/Tag';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class ProjectsService {
-  projects: Project[] = [
+  private readonly projects: Project[] = [
     {
       id: 0,
-      name: 'ASP.NET CORE PROJECT',
-      pictures: [
-        '../../assets/project/asp.net/1.png',
-        '../../assets/project/asp.net/2.png',
-        '../../assets/project/asp.net/3.jpg',
-      ],
-      projectLink: 'https://github.com/enayet329/AspnetMicroservices',
-      liveLink: 'https://github.com/enayet329/AspnetMicroservices',
+      name: 'Travilo',
+      tagline: 'OTA Flight Booking Platform',
+      duration: 'Nov 2024 – Present',
+      status: 'live',
+      statusLabel: 'Live (UAT)',
       summary:
-        'Developed a E-commerce application using ASP.NET Core and Microservices Architecture.',
+        'Enterprise-grade Online Travel Agency platform supporting real-time flight aggregation, booking, and ticketing.',
       description:
-        'Spearheaded the development of a highly scalable e-commerce application using ASP.NET Core and Microservices Architecture. Designed and implemented RESTful APIs for various microservices, ensuring seamless inter-service communication. Utilized Dockerfor containerization of microservices, enhancing the scalability and reliability of the system. Employed RabbitMQ for asynchronous inter-service communication, improving system responsiveness.Leveraged Entity Framework Core for data access, and implemented SQL Server as the database solution.',
+        'Travilo is a production OTA platform that aggregates flight inventory from multiple Global Distribution System (GDS) suppliers in real time. The system handles dynamic pricing, commission/markup engines, PNR generation, secure ticketing, and high-concurrency search across distributed services.',
+      highlights: [
+        'Aggregated multi-supplier flight results from Sabre, Travelport, Amadeus, and Zenith',
+        'Implemented dynamic pricing, commission, and markup management engine',
+        'Designed secure booking and transaction workflows including PNR + ticket issuing',
+        'Improved response performance through optimized data processing strategies',
+        'Optimized search result processing using gRPC streaming',
+      ],
+      projectLink: '',
+      liveLink: 'https://travilo.io/#features',
+      pictures: [
+        'assets/project/travilo/1.png',
+        'assets/project/travilo/2.png',
+        'assets/project/travilo/3.png',
+      ],
       tags: [
-        Tag.ASPNET,
-        Tag.NETWebAPI,
-        Tag.SQL,
-        Tag.CSharp,
-        Tag.Docker,
-        Tag.CleanArchitecture,
-        Tag.MicroservicesArchitecture,
-        Tag.RabbitMQ,
-        Tag.Git,
+        Tag.ASPNET, Tag.Microservices, Tag.MSSQL, Tag.Dapper,
+        Tag.REST, Tag.gRPC, Tag.Sabre, Tag.Travelport, Tag.Amadeus, Tag.Zenith,
       ],
     },
     {
       id: 1,
-      name: 'ASP.NET JWT AUTHENTICATION',
-      pictures: [
-        '../../assets/project/AspNet Jwt/1.jpg',
-        '../../assets/project/AspNet Jwt/2.png',
-        '../../assets/project/AspNet Jwt/3.png',
-      ],
-      projectLink: 'https://github.com/enayet329/ASP.NET-JWT-Authentication',
-      liveLink: 'https://github.com/enayet329/ASP.NET-JWT-Authentication',
+      name: 'Enterprise Microservices E-Commerce',
+      tagline: 'Distributed E-Commerce System',
+      duration: 'Jan 2024 – Mar 2024',
+      status: 'completed',
+      statusLabel: 'Completed',
       summary:
-        'Developed a secure .NET web application implementing JWT (JSON Web Tokens) for authentication and authorization.',
+        'Distributed microservices system for modern e-commerce operations with async messaging.',
       description:
-        'Developed a secure .NET web application implementing JWT (JSON Web Tokens) for authentication and authorization. Implemented JWT middleware to validate tokens and ensure the security of user data. Utilized the .NET Identity framework for user management and integrated it with JWT for token generation. Ensured the secure transmission of sensitive information and user credentials using JWT. Successfully debugged and resolved issues related to token generation and validation. Maintained up-to-date knowledge of JWT specifications and best practices to ensure the application’s security.',
+        'A reference-grade microservices architecture covering catalog, basket, ordering, and payment domains. Services communicate asynchronously via RabbitMQ, isolated by domain boundaries, deployed in Docker, and exposed via REST + gRPC.',
+      highlights: [
+        'Designed distributed microservices for catalog, cart, and order management',
+        'Implemented asynchronous communication using RabbitMQ',
+        'Achieved 3× performance improvement through service isolation and optimization',
+        'Containerized full stack with Docker for reproducible deployments',
+      ],
+      projectLink: 'https://github.com/enayet329/AspnetMicroservices',
+      liveLink: '',
+      pictures: [
+        'assets/project/asp.net/1.png',
+        'assets/project/asp.net/2.png',
+        'assets/project/asp.net/3.jpg',
+      ],
       tags: [
-        Tag.ASPNET,
-        Tag.JWT,
-        Tag.ASPIDENTITY,
-        Tag.CSharp,
-        Tag.EntityFramework,
-        Tag.Git,
+        Tag.ASPNET, Tag.NETWebAPI, Tag.EntityFramework, Tag.Microservices,
+        Tag.Docker, Tag.gRPC, Tag.RabbitMQ, Tag.MSSQL, Tag.MongoDB,
       ],
     },
     {
       id: 2,
-      name: 'IMAGE SEARCH APP',
-      pictures: [
-        '../../assets/project/ImageSearch/1.png',
-        '../../assets/project/ImageSearch/2.png',
-        '../../assets/project/ImageSearch/3.png',
-      ],
-      projectLink: 'https://github.com/enayet329/ImageSearchApp',
-      liveLink: 'https://enayet329.github.io/ImageSearchApp/',
+      name: 'TrackForce',
+      tagline: 'Employee Analytics System',
+      duration: 'Sept 2024 – Present',
+      status: 'production',
+      statusLabel: 'Live (Production)',
       summary:
-        'Developed an Image Search Application, which allows users to search and retrieve images based on their queries',
+        'Real-time workforce analytics platform for enterprise productivity tracking.',
       description:
-        'Developed an Image Search Application leveraging JavaScript, which allows users to search and retrieve images basedon their queries. Integrated the application with a third-party image API, enabling real-time fetching of images based on user input. Utilized asynchronous programming and AJAX for seamless and non-blocking communication with the server. Ensured the application is responsive and compatible across different browsers and devices. Followed best coding practices and maintained code readability and reusability. Tested the application across various scenarios and fixed bugs to ensure its robustness and reliability.',
-      tags: [Tag.JavaScript, Tag.Css, Tag.Html, Tag.Unsplash, Tag.Git],
-    },
-    {
-      id: 3,
-      name: 'Add Shopping Cart',
+        'TrackForce is a workforce activity analytics backend used internally to monitor sessions, productivity, and reporting across 500+ employees. Built on ASP.NET Core with TimeScaleDB for high-volume time-series data and Dapper for performance-tuned queries.',
+      highlights: [
+        'Built workforce analytics system supporting 500+ employees',
+        'Designed session logging and analytics modules with Dapper-tuned queries',
+        'Implemented high-performance time-series processing on TimeScaleDB',
+        'Optimized query performance achieving ~70% faster reporting',
+      ],
+      projectLink: '',
+      liveLink: 'https://trackforce.io/',
       pictures: [
-        '../../assets/project/AddCart/1.png',
-        '../../assets/project/AddCart/2.png',
-        '../../assets/project/AddCart/3.png',
+        'assets/project/trackforce/1.png',
+        'assets/project/trackforce/2.png',
+        'assets/project/trackforce/3.png',
       ],
-      projectLink: 'https://github.com/enayet329/Add-Cart-Shopping-App',
-      liveLink: 'https://enayet329.github.io/Add-Cart-Shopping-App/',
-      summary:
-        'Developed an user-friendly ’Add to Cart’ feature for an e-commerce website',
-      description:
-        'Developed an interactive and user-friendly ’Add to Cart’ feature for an e-commerce website as part of a shopping project. Implemented real-time inventory tracking to ensure product availability and prevent overselling. Integrated secure payment gateways to facilitate smooth transactions. that increse user engagement',
-      tags: [Tag.JavaScript, Tag.Html, Tag.Css, Tag.Git],
-    },
-    {
-      id: 4,
-      name: 'CHATGPT CLONE',
-      pictures: [
-        '../../assets/project/Chatgpt/1.png',
-        '../../assets/project/Chatgpt/2.png',
-        '../../assets/project/Chatgpt/3.png',
-      ],
-      projectLink: 'https://github.com/enayet329/Chat-GPT',
-      liveLink: 'https://chat-gpt-nu-gules.vercel.app/',
-      summary: 'Developed a ChatGPT clone using an open API key',
-      description:
-        'Developed a ChatGPT clone using an open API key, demonstrating proficiency in natural language processing and AI model integration. This project involved designing and implementing a user-friendly interface, ensuring secure API key usage, and optimizing the system for real-time, interactive conversations.',
-      tags: [
-        Tag.NextJs,
-        Tag.TypeScript,
-        Tag.OpenApi,
-        Tag.Html,
-        Tag.Css,
-        Tag.Git,
-      ],
-    },
-    {
-      id: 5,
-      name: 'Quize APP',
-      pictures: [
-        '../../assets/project/quizeApp/1.png',
-        '../../assets/project/quizeApp/2.png',
-        '../../assets/project/quizeApp/3.png',
-      ],
-      projectLink: 'https://github.com/enayet329/Quize-App',
-      liveLink: 'https://quize-app-eta.vercel.app/',
-      summary: 'Developed a Quize App User-friendly interface',
-      description:
-        'Developed an interactive Quiz App using JavaScript, HTML, and CSS, showcasing expertise in front-end web development and user experience design. This project entailed creating a dynamic and engaging interface, implementing secure and efficient JavaScript logic, and utilizing CSS for visually appealing aesthetics. The Quiz App provides real-time feedback, keeps track of user scores, and offers a variety of quizzes on different topics. The application is optimized for responsiveness and usability, ensuring a seamless user experience across various devices and screen sizes. The project demonstrates a strong understanding of the core web technologies and a keen eye for detail in UI/UX design..',
-      tags: [Tag.JavaScript, Tag.Css, Tag.Html, Tag.Git],
+      tags: [Tag.ASPNET, Tag.TimeScaleDB, Tag.Dapper, Tag.REST, Tag.CleanArchitecture],
     },
   ];
 
-  constructor() {}
-
-  GetProjects(): Project[] {
+  getProjects(): Project[] {
     return this.projects;
   }
-  GetProjectById(id: number): Project {
-    let project = this.projects.find((p) => p.id === id);
-    if (project) {
-      return project;
-    } else {
-      throw new TypeError('Project not found' + id);
-    }
+
+  getProjectById(id: number): Project | undefined {
+    return this.projects.find(p => p.id === id);
   }
 
-  GetProjectByFilter(filterTags: Tag[]) {
-    let filteredProjects: Project[] = [];
-  
-    this.projects.forEach((project) => {
-      let foundAll = true;
-  
-      filterTags.forEach((tag) => {
-        if (!project.tags.includes(tag)) {
-          foundAll = false;
-        }
-      });
-  
-      if (foundAll) {
-        filteredProjects.push(project);
-      }
-    });
-  
-    return filteredProjects;
+  /** Returns the first project marked as `live` or `production`, falling back to id 0. */
+  getFeatured(): Project {
+    return this.projects.find(p => p.status === 'live')
+        ?? this.projects.find(p => p.status === 'production')
+        ?? this.projects[0];
   }
-  
 }

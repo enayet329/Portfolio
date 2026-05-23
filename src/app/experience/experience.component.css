@@ -1,0 +1,115 @@
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg,
+    var(--accent-blue) 0%,
+    var(--accent-cyan) 50%,
+    transparent 100%);
+  opacity: 0.45;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 44px;
+  padding-bottom: 28px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  width: 24px; height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timeline-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--bg-base);
+  border: 2px solid var(--accent-blue);
+}
+.timeline-dot.is-current {
+  background: var(--accent-emerald);
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 0 4px rgba(16,185,129,0.15);
+}
+
+.timeline-card { padding: 22px 24px; }
+
+.timeline-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.timeline-role {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  color: var(--text-primary);
+}
+.timeline-company {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.company-name {
+  color: var(--accent-cyan);
+  font-weight: 500;
+}
+.dot-sep { margin: 0 6px; color: var(--text-faint); }
+
+.timeline-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+.timeline-duration.is-current {
+  color: var(--accent-emerald);
+  border-color: rgba(16,185,129,0.30);
+  background: rgba(16,185,129,0.08);
+}
+
+.timeline-bullets {
+  margin: 0 0 14px;
+  padding-left: 18px;
+  color: var(--text-secondary);
+  font-size: 14.5px;
+}
+.timeline-bullets li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+.timeline-bullets li::marker { color: var(--accent-blue); }
+
+.timeline-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-subtle);
+}

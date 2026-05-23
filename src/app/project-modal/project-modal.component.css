@@ -1,61 +1,88 @@
-.modal-header {
-    background-color: #f5f5f5;
-    border-bottom: 1px solid #ddd;
-    padding: 15px;
-    color: #333;
-  }
-  
-  .project-title {
-    font-size: 24px;
-    font-weight: 600;
-  }
-  
-  .btn-close {
-    background-color: transparent;
-    border: none;
-    float: right;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    opacity: .2;
-  }
-  
-  .carousel-container {
-    margin: 20px 0;
-  }
-  
-  .project-image {
-    display: block; 
-    width: 100%;
-    height: auto;
-  }
-  
-  .project-description {
-    margin-top: 20px;
-  }
-  
-  .project-links {
-    margin: 20px 0;
-  }
-  
-  .project-links i {
-    margin-right: 5px;
-  }
-  
-  .tag-container {
-    display: flex; 
-    flex-wrap: wrap;
-  }
-  
-  .tag-item {
-    margin: 2px;
-  }
-  
-  .tag {
-    padding: 5px 10px;
-    color: #fff;
-    border-radius: 3px;
-  }
-  
+.project-modal-header {
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-subtle) !important;
+  padding: 22px 26px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.project-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+.project-modal-tagline {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.project-modal-body {
+  background: var(--bg-base);
+  padding: 24px 26px 28px;
+}
+
+.project-modal-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent-emerald);
+  background: rgba(16,185,129,0.08);
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(16,185,129,0.25);
+  margin-bottom: 18px;
+}
+
+.project-modal-section {
+  margin-bottom: 22px;
+}
+.project-modal-section h3 {
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-cyan);
+  margin-bottom: 10px;
+}
+.project-modal-section p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+.project-modal-section ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-secondary);
+  font-size: 14.5px;
+}
+.project-modal-section ul li { margin-bottom: 6px; }
+
+.project-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.project-modal-tags .project-tag {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-subtle);
+}
+
+.project-modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--border-subtle);
+}

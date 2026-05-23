@@ -1,0 +1,22 @@
+<footer class="site-footer">
+  <div class="container-wide footer-grid">
+    <div class="footer-brand">
+      <span class="footer-mark mono">&lt;/&gt;</span>
+      <div>
+        <p class="footer-name">MD Enayet Hossain</p>
+        <p class="footer-tagline">Engineering scalable systems, one microservice at a time.</p>
+      </div>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <a *ngFor="let id of links" [href]="'#' + id" (click)="goTo($event, id)">{{ capitalize(id) }}</a>
+    </nav>
+
+    <div class="footer-meta">
+      <p class="footer-copy mono">© {{ year }} MD Enayet Hossain</p>
+      <p class="footer-built mono">
+        Built with <span class="heart" aria-hidden="true">♥</span> using Angular &amp; TypeScript
+      </p>
+    </div>
+  </div>
+</footer>

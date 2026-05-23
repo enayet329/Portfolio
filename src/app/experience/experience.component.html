@@ -1,0 +1,39 @@
+<section id="experience" class="section">
+  <div class="container-wide">
+    <div class="section-eyebrow">Professional Experience</div>
+    <h2 class="section-title">Where I've <span class="gradient-text">built things</span></h2>
+
+    <ol class="timeline" aria-label="Work experience timeline" appReveal>
+      <li *ngFor="let exp of entries" class="timeline-item">
+        <div class="timeline-marker" aria-hidden="true">
+          <span class="timeline-dot" [class.is-current]="exp.current"></span>
+        </div>
+
+        <article class="timeline-card glass-card">
+          <header class="timeline-head">
+            <div>
+              <h3 class="timeline-role">{{ exp.role }}</h3>
+              <p class="timeline-company">
+                <span class="company-name">{{ exp.company }}</span>
+                <span class="dot-sep">·</span>
+                <span class="company-loc">{{ exp.location }}</span>
+              </p>
+            </div>
+            <span class="timeline-duration" [class.is-current]="exp.current">
+              <span *ngIf="exp.current" class="status-dot"></span>
+              {{ exp.duration }}
+            </span>
+          </header>
+
+          <ul class="timeline-bullets">
+            <li *ngFor="let bullet of exp.bullets">{{ bullet }}</li>
+          </ul>
+
+          <div *ngIf="exp.tech?.length" class="timeline-tech">
+            <span *ngFor="let t of exp.tech" class="chip-mono">{{ t }}</span>
+          </div>
+        </article>
+      </li>
+    </ol>
+  </div>
+</section>

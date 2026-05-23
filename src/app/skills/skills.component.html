@@ -1,0 +1,27 @@
+<section id="skills" class="section">
+  <div class="container-wide">
+    <div class="section-eyebrow">Technical Skills</div>
+    <h2 class="section-title">My <span class="gradient-text">technology stack</span></h2>
+    <p class="section-subtitle">
+      A breakdown of the languages, frameworks, and tools I work with day to day
+      across backend, distributed systems, and travel-tech integrations.
+    </p>
+
+    <div class="skills-grid" appReveal>
+      <div *ngFor="let cat of categories" class="skill-card glass-card glass-card--glow">
+        <div class="skill-head">
+          <span class="skill-icon" aria-hidden="true">{{ cat.icon }}</span>
+          <h3 class="skill-title">{{ cat.title }}</h3>
+        </div>
+        <div class="skill-chips">
+          <span *ngFor="let skill of cat.skills"
+                class="skill-chip"
+                [class.is-advanced]="skill.level === 'Advanced'">
+            {{ skill.name }}
+            <small *ngIf="skill.level === 'Advanced'" class="skill-level">★</small>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

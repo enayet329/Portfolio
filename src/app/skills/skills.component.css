@@ -1,0 +1,67 @@
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.skill-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skill-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.skill-icon {
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(59,130,246,0.10), rgba(6,182,212,0.10));
+  border: 1px solid var(--border-subtle);
+}
+.skill-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.2s ease;
+}
+.skill-chip:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+.skill-chip.is-advanced {
+  background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(6,182,212,0.12));
+  border-color: rgba(59,130,246,0.30);
+  color: var(--text-primary);
+}
+.skill-level {
+  color: var(--accent-amber);
+  font-size: 11px;
+}
